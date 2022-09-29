@@ -29,6 +29,7 @@ Modules
    
    FilePages/modules.rst
    TestsPages/modules.rst
+   UserGuide.rst
 
 
 

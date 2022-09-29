@@ -14,7 +14,6 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
-# ****************** A éditer pour donner les fichiers pythons sources à documenter ******************
 
 import os
 import sys
@@ -23,13 +22,27 @@ import sys
 # sys.path.insert(0, os.path.abspath("../../.."))
 
 
-absolutepath = os.path.abspath(__file__)
-print(absolutepath)
-print("")
+projectPath = os.path.abspath(__file__)
+projectPath = projectPath.replace("\\", "/")
 
-sys.path.insert(0, "D:/temp_perso/FileManagement/Sources/Packages/File")
-sys.path.insert(0, "D:/temp_perso/FileManagement/Tests")
-print(sys.path)
+while os.path.basename(projectPath) != "FileManagement":
+    projectPath = os.path.dirname(projectPath)
+
+filePath = os.path.join(projectPath, "Sources/Packages/File")
+testPath = os.path.join(projectPath, "Tests")
+print(filePath)
+print(testPath)
+print("")
+# ****************** A éditer pour donner les fichiers pythons sources
+#                    à documenter
+# =============================================================================
+# sys.path.insert(0, "D:/temp_perso/FileManagement/Sources/Packages/File")
+# sys.path.insert(0, "D:/temp_perso/FileManagement/Tests")
+# =============================================================================
+
+sys.path.insert(0, filePath)
+sys.path.insert(0, testPath)
+# print(sys.path)
 sys.setrecursionlimit(1500)
 
 # -- Project information -----------------------------------------------------
@@ -61,24 +74,29 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # Turn off prepending module names
 add_module_names = False
- 
+
 # Sort members by type
 autodoc_member_order = 'groupwise'
- 
+
+
 # Document __init__, __repr__, and __str__ methods
 def skip(app, what, name, obj, would_skip, options):
+    """Skip methods wich don't need to be in doc."""
     if name in ("__init__", "__repr__", "__str__", "__del__"):
         return False
     return would_skip
- 
+
+
 def setup(app):
+    """Set up of app (?)."""
     app.connect("autodoc-skip-member", skip)
 
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
+
+
 html_theme = 'furo'
 
 # Add any paths that contain custom static files (such as style sheets) here,

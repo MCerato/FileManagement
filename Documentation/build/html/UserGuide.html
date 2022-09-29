@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="File" href="FilePages/modules.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="TestPDFFile module" href="TestsPages/TestPDFFile.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.06.04.1"/>
-        <title>FileManagement 0.0.0.1 documentation</title>
+        <title>FileManagement UserGuide (WIP) - FileManagement 0.0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">FileManagement 0.0.0.1 documentation</div></a>
+      <a href="index.html"><div class="brand">FileManagement 0.0.0.1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -143,7 +143,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
   <span class="sidebar-brand-text">FileManagement 0.0.0.1 documentation</span>
@@ -155,7 +155,7 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="FilePages/modules.html">File</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="FilePages/FileWrapper.html">FileWrapper module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FilePages/PDFFile.html">PDFFile module</a></li>
@@ -166,7 +166,7 @@
 <li class="toctree-l2"><a class="reference internal" href="TestsPages/TestPDFFile.html">TestPDFFile module</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="UserGuide.html">FileManagement UserGuide (WIP)</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">FileManagement UserGuide (WIP)</a></li>
 </ul>
 
 </div>
@@ -200,53 +200,73 @@
           </label>
         </div>
         <article role="main">
-          <section id="welcome-to-bankapp-s-documentation">
-<h1>Welcome to BankApp’s documentation!<a class="headerlink" href="#welcome-to-bankapp-s-documentation" title="Permalink to this headline">#</a></h1>
+          <section id="filemanagement-userguide-wip">
+<h1>FileManagement UserGuide (WIP)<a class="headerlink" href="#filemanagement-userguide-wip" title="Permalink to this headline">#</a></h1>
+<p>WELCOME HERE! This documentation intend to show you how to use the package
+FileManagement</p>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">#</a></h2>
-<p>This is an example on how to create documentatio for your code in python.
-This project should follow the diagram below :</p>
-<a class="reference internal image-reference" href="_images/Diagram_UML.png"><img alt="_images/Diagram_UML.png" class="align-center" src="_images/Diagram_UML.png" style="width: 337.75px; height: 292.5px;" /></a>
+<p>FileManagement is a wrapper (simplifier) to manipulate specific files format
+such as <code class="docutils literal notranslate"><span class="pre">.pdf</span></code>, <code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.csv</span></code> wich are the most used to common manipulations</p>
+<p>Natively in this package, <code class="docutils literal notranslate"><span class="pre">FileWrapper</span></code> is better used with one of the file
+format it has been created for. But If you feel it can be exploited for other
+file format, feel free to use it for personal purpose.</p>
 </section>
-<section id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>Add special project notes here that you want to communicate to the user.</p></li>
-</ul>
+<section id="software-architecture">
+<h2>Software Architecture<a class="headerlink" href="#software-architecture" title="Permalink to this headline">#</a></h2>
+<p>How FileManagement has been designed is represented by the software architecture below:</p>
+<img alt="_images/Diagram_UML.PNG" src="_images/Diagram_UML.PNG" />
 </section>
-<section id="modules">
-<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">#</a></h2>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="FilePages/modules.html">File</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="FilePages/FileWrapper.html">FileWrapper module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="FilePages/PDFFile.html">PDFFile module</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="TestsPages/modules.html">Tests</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TestsPages/TestFile.html">TestFile module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TestsPages/TestPDFFile.html">TestPDFFile module</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="UserGuide.html">FileManagement UserGuide (WIP)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UserGuide.html#description">Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UserGuide.html#software-architecture">Software Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UserGuide.html#how-to-select-the-pbr">How To select the PBR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UserGuide.html#how-to-download">How To Download</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UserGuide.html#how-to-upload">How To Upload</a></li>
-</ul>
-</li>
-</ul>
+<section id="how-to-select-the-pbr">
+<h2>How To select the PBR<a class="headerlink" href="#how-to-select-the-pbr" title="Permalink to this headline">#</a></h2>
+<p>It exists 2 type of connections to a Powerbrick. You can connect through the “maintenance port”.
+This ethernet port exists on every PowerBrick and always has the same adress.</p>
+<p>The other way allows you to enter an IP adress manually.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Be careful on wich you are able to connect or not.
+The software doesn’t check what device is on the network. He is pretty simple.</p>
+</div>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>IP Adress Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Default IP Adress</p></td>
+<td><p>Maintenance Adress 172.168.0.200</p></td>
+</tr>
+<tr class="row-odd"><td><p>Custom IP adress</p></td>
+<td><p>any Standard PBR adress</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </section>
-<section id="indices-and-tables">
-<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
+<section id="how-to-download">
+<h2>How To Download<a class="headerlink" href="#how-to-download" title="Permalink to this headline">#</a></h2>
+<p>The Download feature allows you to extract setups (in folders form or in files form) of a Power Birck.
+You’ll have to select what setup you want to download. It goes from “usrflash” for the most recent parameters
+to “usrflash.5” for the oldest.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Choosing a path to download is not implemented yet. The files downloaded are put where the script is run.</p>
+</div>
+<p>You can then, press on the green button <em>“Download”</em>.</p>
+</section>
+<section id="how-to-upload">
+<h2>How To Upload<a class="headerlink" href="#how-to-upload" title="Permalink to this headline">#</a></h2>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Because of a bug, the dynamic update of the GUI does’nt work. So you need to press on buttons
+to get the entry fields (ip address Entry) enabled.</p>
+</div>
 </section>
 </section>
 
@@ -255,16 +275,18 @@ This project should follow the diagram below :</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="FilePages/modules.html">
+          
+          <a class="prev-page" href="TestsPages/TestPDFFile.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
-                  <span>Next</span>
+                  <span>Previous</span>
                 </div>
-                <div class="title">File</div>
+                
+                <div class="title">TestPDFFile module</div>
+                
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -297,11 +319,12 @@ This project should follow the diagram below :</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Welcome to BankApp’s documentation!</a><ul>
+<li><a class="reference internal" href="#">FileManagement UserGuide (WIP)</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#notes">Notes</a></li>
-<li><a class="reference internal" href="#modules">Modules</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#software-architecture">Software Architecture</a></li>
+<li><a class="reference internal" href="#how-to-select-the-pbr">How To select the PBR</a></li>
+<li><a class="reference internal" href="#how-to-download">How To Download</a></li>
+<li><a class="reference internal" href="#how-to-upload">How To Upload</a></li>
 </ul>
 </li>
 </ul>

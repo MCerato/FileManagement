@@ -166,6 +166,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../TestsPages/TestPDFFile.html">TestPDFFile module</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../UserGuide.html">FileManagement UserGuide (WIP)</a></li>
 </ul>
 
 </div>
@@ -201,12 +202,15 @@
         <article role="main">
           <section id="module-FileWrapper">
 <span id="filewrapper-module"></span><h1>FileWrapper module<a class="headerlink" href="#module-FileWrapper" title="Permalink to this headline">#</a></h1>
-<p>Manage the bank file.</p>
+<p>Manage the file.</p>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">#</a></h2>
 <p>Object from wich you can manage a file.
 For instance, create a file, rename it etc…</p>
-<p>You can also get (read) the content and save a new content into it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is not possible to move the file. It is made on purpose.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This file doesn’t manage <strong>the content</strong> of the file.
@@ -223,14 +227,9 @@ a list of strings wich is easier to manipulate in python.</p>
 <section id="libraries-modules">
 <h2>Libraries/Modules<a class="headerlink" href="#libraries-modules" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><dl class="simple">
-<dt>os standard library (<a class="reference external" href="https://docs.python.org/3/library/os.html">https://docs.python.org/3/library/os.html</a>)</dt><dd><ul>
-<li><p>Access to files function.</p></li>
+<li><p>os standard library (<a class="reference external" href="https://docs.python.org/3/library/os.html">https://docs.python.org/3/library/os.html</a>)</p></li>
 </ul>
-</dd>
-</dl>
-</li>
-</ul>
+<p>Access to files function.</p>
 </section>
 <section id="version">
 <h2>Version<a class="headerlink" href="#version" title="Permalink to this headline">#</a></h2>
@@ -240,14 +239,8 @@ a list of strings wich is easier to manipulate in python.</p>
 </section>
 <section id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h2>
-<ul>
-<li><dl>
-<dt>Temporary repository<span class="classifier"><a class="reference external" href="https://github.com/MCerato/BankApp">https://github.com/MCerato/BankApp</a></span></dt><dd><ul class="simple">
-<li><p>This code will be given in a more appropriate project</p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<ul class="simple">
+<li><p>Repository : <a class="reference external" href="https://github.com/MCerato/FileManagement">https://github.com/MCerato/FileManagement</a></p></li>
 </ul>
 </section>
 <section id="todo">
@@ -266,6 +259,12 @@ a list of strings wich is easier to manipulate in python.</p>
 </section>
 <section id="members">
 <h2>Members<a class="headerlink" href="#members" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><ol class="upperalpha simple" start="13">
+<li><p>cerato</p></li>
+</ol>
+</li>
+</ul>
 <dl class="py class">
 <dt class="sig sig-object py" id="FileWrapper.File">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">File</span></span><a class="headerlink" href="#FileWrapper.File" title="Permalink to this definition">#</a></dt>

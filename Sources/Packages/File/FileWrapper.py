@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
-"""Manage the bank file.
+"""Manage the file.
 
 Description
 -----------
 Object from wich you can manage a file.
 For instance, create a file, rename it etc...
-
-You can also get (read) the content and save a new content into it.
 
 .. note::
     This file doesn't manage **the content** of the file.
@@ -21,7 +19,7 @@ You can also get (read) the content and save a new content into it.
 Libraries/Modules
 -----------------
 - os standard library (https://docs.python.org/3/library/os.html)
-    - Access to files function.
+Access to files function.
 
 Version
 -------
@@ -29,8 +27,7 @@ Version
 
 Notes
 -----
-- Temporary repository : https://github.com/MCerato/BankApp
-    - This code will be given in a more appropriate project
+- Repository : https://github.com/MCerato/FileManagement
 
 TODO
 ----
@@ -45,6 +42,7 @@ Copyright (c) 2020 Cerato Workshop.  All rights reserved.
 
 Members
 -------
+- M. cerato
 """
 
 
@@ -109,7 +107,7 @@ class File:
         :type userPath:
             str
         :return:
-            the path and the name of the file, but splitted
+            the path and the name of the file
         :rtype:
             str, str.
         """
@@ -134,7 +132,7 @@ class File:
         :type userPath:
             str
         :return:
-            the path and the name of the file, but splitted
+            the path and the name of the file
         :rtype:
             str, str
         """
@@ -189,7 +187,32 @@ class File:
                 print("This file already exists")
 
             self._name = newName
+            
+    def MoveFile(self, newPath):
+        """Rename the file pointed by the object.
 
+        :param newName:
+            New name of the file.
+        :type newName:
+            str
+
+        .. note::
+            Change the name only if no file of this name exists
+            
+        .. warning::
+            don't foget extention'
+        """
+        if self.__IsAFileSelected():
+            
+            try:
+                os.rename(os.path.join(self.GetFilePath(), 
+                                       self.GetFileName()),
+                          os.path.join(newPath, 
+                                       self.GetFileName()))
+            except FileExistsError:
+                print("This file already exists")
+
+            self._path = newPath
 # In[4]: functions for file manipulation
     def GetFileSize(self):
         """Ask for the size of the file.
