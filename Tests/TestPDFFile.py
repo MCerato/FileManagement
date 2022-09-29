@@ -72,6 +72,12 @@ resumeLine = resumePDF.GetLineContent(3)
 
 randomFile = PDFFile.PDF(NotPDFFilePath) # Create An other PDF file object with a wrong link
 time.sleep(2)
+randomFile.RenameFile("yo.txt")
+time.sleep(2)
+randomFile.MoveFile("D:/temp_perso/FileManagement/Sources/API")
+time.sleep(2)
+randomFile.MoveFile("D:/temp_perso/FileManagement/Sources")
+time.sleep(2)
 randomFile.DeleteFile()
 
 

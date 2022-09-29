@@ -165,6 +165,9 @@ class File:
     def RenameFile(self, newName):
         """Rename the file pointed by the object.
 
+        .. note::
+            return None if no file selected
+        
         :param newName:
             New name of the file.
         :type newName:
@@ -189,18 +192,16 @@ class File:
             self._name = newName
             
     def MoveFile(self, newPath):
-        """Rename the file pointed by the object.
+        """Change the directory of the file
 
-        :param newName:
-            New name of the file.
-        :type newName:
+        :param newPath:
+            New path of the file.
+        :type newPath:
             str
 
         .. note::
-            Change the name only if no file of this name exists
-            
-        .. warning::
-            don't foget extention'
+            Move the file only if no other file of this name exists
+
         """
         if self.__IsAFileSelected():
             
@@ -217,6 +218,9 @@ class File:
     def GetFileSize(self):
         """Ask for the size of the file.
 
+        .. note::
+            return None if no file selected
+
         :return:
             The size of the file in Bytes
         :rtype:
@@ -228,6 +232,9 @@ class File:
 
     def GetFileFormat(self):
         """Ask for the extention of the file.
+
+        .. note::
+            return None if no file selected
 
         :return:
             The extention of the file. For instance ``.txt``, ``.py``, ``.pdf``
@@ -244,7 +251,10 @@ class File:
             return ext
 
     def GetFilePath(self):
-        """Path file pointed by the object.
+        """Ask for Path of the file
+
+        .. note::
+            return None if no file selected
 
         :return:
             absolute path containing the file (without file name)
@@ -258,6 +268,9 @@ class File:
 
     def GetFileName(self):
         """Name of the file pointed by the object.
+
+        .. note::
+            return None if no file selected
 
         :return:
              full name of the file if it exists (with extension)
@@ -273,7 +286,7 @@ class File:
 
 # In[4]: internal functions for file itself
     def __IsAFileSelected(self):
-        """(local method) check if the file exists.
+        """(local method) check if a file is associated with the object.
 
         :return:
             Return ``True`` or ``False``
@@ -319,13 +332,7 @@ class File:
             return isEmpty
 
     def __UpdtFileInfos(self, userPath):
-        """(local method) check if the file is empty.
-
-        :return:
-            Return ``True`` or ``False``.
-        :rtype:
-            bool
-        """
+        """(local method) Get all Informations of the file."""
         self._path, self._name = os.path.split(userPath)
         self._size = self.GetFileSize()
         self._fileFormat = self.GetFileFormat()

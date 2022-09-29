@@ -48,10 +48,9 @@ Members
 # In[1]: imports
 import sys
 import os
-from PyPDF2 import PdfFileReader
 import FileWrapper as fw
 
-class PDF(fw.File):
+class TXT(fw.File):
     # In[1]: constructor & destructor
 
     """Class representing the file.
@@ -78,7 +77,7 @@ class PDF(fw.File):
 
         self.CreateFile(userPath) # link the PDF to the object
         
-        if self.GetFileFormat() != ".pdf":
+        if self.GetFileFormat() != ".txt":
             print("wrong file format")
             print(f"This is a {self.GetFileFormat()}")
             print(f"")
@@ -94,7 +93,7 @@ class PDF(fw.File):
     def __repr__(self):
         """Display the object of the file."""
 
-        return f"pdf file : {self.GetFileName()}"
+        return f"txt file : {self.GetFileName()}"
 
 
 # In[3]: Content of the file
@@ -163,15 +162,8 @@ class PDF(fw.File):
         return isEmpty
 
     def __RawTextExtraction(self):
-        text = ""
         with open(os.path.join(self.GetFilePath(),
-                               self.GetFileName()), 'rb') as file:
-            pdf = PdfFileReader(file)
-            # get the first page
-            for pageNumber in range(pdf.numPages):
-                page = pdf.getPage(pageNumber)
-                # print(page)
-                # print('Page type: {}'.format(str(type(page))))
-                text += page.extractText()
+                               self.GetFileName()),
+                  mode='rb') as file:
 
-            return text
+            return file.read()
