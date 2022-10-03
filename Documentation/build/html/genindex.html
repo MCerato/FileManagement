@@ -157,11 +157,13 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="FilePages/modules.html">File</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="FilePages/FileWrapper.html">FileWrapper module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FilePages/PDFFile.html">PDFFile module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FilePages/TXTFile.html">TXTFile module</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="TestsPages/modules.html">Tests</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="TestsPages/TestFile.html">TestFile module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="TestsPages/TestPDFFile.html">TestPDFFile module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TestsPages/TestTXTFile.html">TestTXTFile module</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="UserGuide.html">FileManagement UserGuide (WIP)</a></li>
@@ -201,7 +203,7 @@
           
 <section class="genindex-section">
   <h1 id="index">Index</h1>
-  <div class="genindex-jumpbox"><a href="#_"><strong>_</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a></div>
+  <div class="genindex-jumpbox"><a href="#_"><strong>_</strong></a> | <a href="#A"><strong>A</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a></div>
 </section>
 <section id="_" class="genindex-section">
   <h2>_</h2>
@@ -212,11 +214,15 @@
         <ul>
           <li><a href="FilePages/PDFFile.html#PDFFile.PDF.__del__">(PDF method)</a>
 </li>
+          <li><a href="FilePages/TXTFile.html#TXTFile.TXT.__del__">(TXT method)</a>
+</li>
         </ul></li>
         <li><a href="FilePages/FileWrapper.html#FileWrapper.File.__init__">__init__() (File method)</a>
 
         <ul>
           <li><a href="FilePages/PDFFile.html#PDFFile.PDF.__init__">(PDF method)</a>
+</li>
+          <li><a href="FilePages/TXTFile.html#TXTFile.TXT.__init__">(TXT method)</a>
 </li>
         </ul></li>
     </ul></td>
@@ -226,7 +232,19 @@
         <ul>
           <li><a href="FilePages/PDFFile.html#PDFFile.PDF.__repr__">(PDF method)</a>
 </li>
+          <li><a href="FilePages/TXTFile.html#TXTFile.TXT.__repr__">(TXT method)</a>
+</li>
         </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="FilePages/TXTFile.html#TXTFile.TXT.AddContent">AddContent() (TXT method)</a>
+</li>
     </ul></td>
   </tr></table>
 </section>
@@ -236,6 +254,10 @@
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="FilePages/FileWrapper.html#FileWrapper.File.CreateFile">CreateFile() (File method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="FilePages/PDFFile.html#PDFFile.PDF.CreateNewPDF">CreateNewPDF() (PDF method)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -277,21 +299,33 @@
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="FilePages/PDFFile.html#PDFFile.PDF.GetAllContent">GetAllContent() (PDF method)</a>
+
+        <ul>
+          <li><a href="FilePages/TXTFile.html#TXTFile.TXT.GetAllContent">(TXT method)</a>
 </li>
+        </ul></li>
         <li><a href="FilePages/FileWrapper.html#FileWrapper.File.GetFileFormat">GetFileFormat() (File method)</a>
 </li>
         <li><a href="FilePages/FileWrapper.html#FileWrapper.File.GetFileName">GetFileName() (File method)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="FilePages/FileWrapper.html#FileWrapper.File.GetFilePath">GetFilePath() (File method)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="FilePages/FileWrapper.html#FileWrapper.File.GetFileSize">GetFileSize() (File method)</a>
 </li>
         <li><a href="FilePages/PDFFile.html#PDFFile.PDF.GetLineContent">GetLineContent() (PDF method)</a>
+
+        <ul>
+          <li><a href="FilePages/TXTFile.html#TXTFile.TXT.GetLineContent">(TXT method)</a>
 </li>
+        </ul></li>
         <li><a href="FilePages/PDFFile.html#PDFFile.PDF.GetLinesContent">GetLinesContent() (PDF method)</a>
+
+        <ul>
+          <li><a href="FilePages/TXTFile.html#TXTFile.TXT.GetLinesContent">(TXT method)</a>
 </li>
+        </ul></li>
     </ul></td>
   </tr></table>
 </section>
@@ -312,7 +346,15 @@
 </li>
           <li><a href="TestsPages/TestPDFFile.html#module-TestPDFFile">TestPDFFile</a>
 </li>
+          <li><a href="TestsPages/TestTXTFile.html#module-TestTXTFile">TestTXTFile</a>
+</li>
+          <li><a href="FilePages/TXTFile.html#module-TXTFile">TXTFile</a>
+</li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="FilePages/FileWrapper.html#FileWrapper.File.MoveFile">MoveFile() (File method)</a>
+</li>
     </ul></td>
   </tr></table>
 </section>
@@ -355,6 +397,10 @@
         <li><a href="FilePages/FileWrapper.html#FileWrapper.File.RenameFile">RenameFile() (File method)</a>
 </li>
     </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="FilePages/TXTFile.html#TXTFile.TXT.ReplaceContent">ReplaceContent() (TXT method)</a>
+</li>
+    </ul></td>
   </tr></table>
 </section>
 
@@ -383,13 +429,29 @@
           <li><a href="TestsPages/TestFile.html#module-TestFile">module</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     TestPDFFile
 
         <ul>
           <li><a href="TestsPages/TestPDFFile.html#module-TestPDFFile">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    TestTXTFile
+
+        <ul>
+          <li><a href="TestsPages/TestTXTFile.html#module-TestTXTFile">module</a>
+</li>
+        </ul></li>
+        <li><a href="FilePages/TXTFile.html#TXTFile.TXT">TXT (class in TXTFile)</a>
+</li>
+        <li>
+    TXTFile
+
+        <ul>
+          <li><a href="FilePages/TXTFile.html#module-TXTFile">module</a>
 </li>
         </ul></li>
     </ul></td>

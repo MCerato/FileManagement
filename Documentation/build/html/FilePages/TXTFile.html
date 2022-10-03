@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="PDFFile module" href="PDFFile.html" /><link rel="prev" title="File" href="modules.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Tests" href="../TestsPages/modules.html" /><link rel="prev" title="PDFFile module" href="PDFFile.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.06.04.1"/>
-        <title>FileWrapper module - FileManagement 0.0.0.1 documentation</title>
+        <title>TXTFile module - FileManagement 0.0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -157,9 +157,9 @@
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">File</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">FileWrapper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FileWrapper.html">FileWrapper module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PDFFile.html">PDFFile module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TXTFile.html">TXTFile module</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">TXTFile module</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../TestsPages/modules.html">Tests</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -202,31 +202,30 @@
           </label>
         </div>
         <article role="main">
-          <section id="module-FileWrapper">
-<span id="filewrapper-module"></span><h1>FileWrapper module<a class="headerlink" href="#module-FileWrapper" title="Permalink to this headline">#</a></h1>
-<p>Manage the file.</p>
+          <section id="module-TXTFile">
+<span id="txtfile-module"></span><h1>TXTFile module<a class="headerlink" href="#module-TXTFile" title="Permalink to this headline">#</a></h1>
+<p>Manage the bank file.</p>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">#</a></h2>
-<p>Object from wich you can manage a file.
-For instance, create a file, rename it etc…</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This file doesn’t manage <strong>the content</strong> of the file.
-To do this, we recommend using PDFFile, TXTFile or CSVFile wich gives
-access to specific methods.</p>
-</div>
+<p>Object inherited from FileWrapper class and contning specific method to extract
+Datas.</p>
+<p>Instead of FileWrapper, this Class has to be associated with a PDFFile</p>
+<p>You can also get (read) the content and save a new content into it.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>You can’t manipulate datas directly from/to the file.
 It is recommended to export the content of the file for treatment as
 a list of strings wich is easier to manipulate in python.</p>
 </div>
+<p><a class="reference external" href="https://www.blog.pythonlibrary.org/2018/06/07/an-intro-to-pypdf2/">https://www.blog.pythonlibrary.org/2018/06/07/an-intro-to-pypdf2/</a></p>
 </section>
 <section id="libraries-modules">
 <h2>Libraries/Modules<a class="headerlink" href="#libraries-modules" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><dl class="simple">
-<dt>os standard library (<a class="reference external" href="https://docs.python.org/3/library/os.html">https://docs.python.org/3/library/os.html</a>)</dt><dd><p>Access to files function.</p>
+<dt>os standard library (<a class="reference external" href="https://docs.python.org/3/library/os.html">https://docs.python.org/3/library/os.html</a>)</dt><dd><ul>
+<li><p>Access to files function.</p></li>
+</ul>
 </dd>
 </dl>
 </li>
@@ -235,13 +234,13 @@ a list of strings wich is easier to manipulate in python.</p>
 <section id="version">
 <h2>Version<a class="headerlink" href="#version" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>0.0.0.1</p></li>
+<li><p>1.0.0.0</p></li>
 </ul>
 </section>
 <section id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>Repository : <a class="reference external" href="https://github.com/MCerato/FileManagement">https://github.com/MCerato/FileManagement</a></p></li>
+<li><p>None.</p></li>
 </ul>
 </section>
 <section id="todo">
@@ -253,281 +252,157 @@ a list of strings wich is easier to manipulate in python.</p>
 <section id="author-s">
 <h2>Author(s)<a class="headerlink" href="#author-s" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>Created by M. Cerato on 09/25/2022.</p></li>
+<li><p>Created by M. Cerato on 06/17/2022.</p></li>
 <li><p>Modified by xxx on xx/xx/xxxx.</p></li>
 </ul>
 <p>Copyright (c) 2020 Cerato Workshop.  All rights reserved.</p>
 </section>
 <section id="members">
 <h2>Members<a class="headerlink" href="#members" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><ol class="upperalpha simple" start="13">
-<li><p>cerato</p></li>
-</ol>
-</li>
-</ul>
 <dl class="py class">
-<dt class="sig sig-object py" id="FileWrapper.File">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">File</span></span><a class="headerlink" href="#FileWrapper.File" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dt class="sig sig-object py" id="TXTFile.TXT">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TXT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">userPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TXTFile.TXT" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="FileWrapper.html#FileWrapper.File" title="FileWrapper.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileWrapper.File</span></code></a></p>
 <p>Class representing the file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>path</strong> (<em>str</em>) – where the file is.
 Path should be absolute with format <code class="docutils literal notranslate"><span class="pre">C:/file1/file2/sourcefile</span></code></p></li>
-<li><p><strong>name</strong> (<em>str</em>) – Name of the file. For instance <code class="docutils literal notranslate"><span class="pre">plop.txt</span></code></p></li>
-<li><p><strong>size</strong> (<em>int</em>) – size of the file in bytes</p></li>
-<li><p><strong>fileFormat</strong> (<em>int</em>) – extention of the file. for Instance, <code class="docutils literal notranslate"><span class="pre">.txt</span></code></p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Name of the file.
+Enter the name without extension</p></li>
+<li><p><strong>month</strong> (<em>int</em>) – <strong>Number</strong> of the month (i.e 1 for January).</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="FileWrapper.File.CreateFile">
-<span class="sig-name descname"><span class="pre">CreateFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">userPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#FileWrapper.File.CreateFile" title="Permalink to this definition">#</a></dt>
-<dd><p>Create a new file. Select one if already exsiting.</p>
+<dt class="sig sig-object py" id="TXTFile.TXT.AddContent">
+<span class="sig-name descname"><span class="pre">AddContent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TXTFile.TXT.AddContent" title="Permalink to this definition">#</a></dt>
+<dd><p>Give the specific line of the file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>userPath</strong> (<em>str</em>) – path to the file.</p>
+<dd class="field-odd"><p><strong>line</strong> (<em>int</em>) – Line to read.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the path and the name of the file</p>
+<dd class="field-even"><p>Return the line as a string</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str, str.</p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="FileWrapper.File.DeleteFile">
-<span class="sig-name descname"><span class="pre">DeleteFile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#FileWrapper.File.DeleteFile" title="Permalink to this definition">#</a></dt>
-<dd><p>Delete the file pointed by the object.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>object is not associated with a file anymore.
-A new one has to be selected or created.</p>
+<p>displays the carriage return + line feed</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>return an empty string if the line is out of bound or empty.</p>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="FileWrapper.File.GetFileFormat">
-<span class="sig-name descname"><span class="pre">GetFileFormat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#FileWrapper.File.GetFileFormat" title="Permalink to this definition">#</a></dt>
-<dd><p>Ask for the extention of the file.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>return None if no file selected</p>
-</div>
+<dt class="sig sig-object py" id="TXTFile.TXT.GetAllContent">
+<span class="sig-name descname"><span class="pre">GetAllContent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TXTFile.TXT.GetAllContent" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the entire file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The extention of the file. For instance <code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.py</span></code>, <code class="docutils literal notranslate"><span class="pre">.pdf</span></code></p>
+<dd class="field-odd"><p>Return the entire content of the file as one big string</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>displays the carriage return + line feed</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="FileWrapper.File.GetFileName">
-<span class="sig-name descname"><span class="pre">GetFileName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#FileWrapper.File.GetFileName" title="Permalink to this definition">#</a></dt>
-<dd><p>Name of the file pointed by the object.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>return None if no file selected</p>
-</div>
+<dt class="sig sig-object py" id="TXTFile.TXT.GetLineContent">
+<span class="sig-name descname"><span class="pre">GetLineContent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TXTFile.TXT.GetLineContent" title="Permalink to this definition">#</a></dt>
+<dd><p>Give the specific line of the file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>full name of the file if it exists (with extension)
-None if it doesn’t exist</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>line</strong> (<em>int</em>) – Line to read.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str or None</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Return the line as a string</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>displays the carriage return + line feed</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>return an empty string if the line is out of bound or empty.</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="FileWrapper.File.GetFilePath">
-<span class="sig-name descname"><span class="pre">GetFilePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#FileWrapper.File.GetFilePath" title="Permalink to this definition">#</a></dt>
-<dd><p>Ask for Path of the file</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>return None if no file selected</p>
-</div>
+<dt class="sig sig-object py" id="TXTFile.TXT.GetLinesContent">
+<span class="sig-name descname"><span class="pre">GetLinesContent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TXTFile.TXT.GetLinesContent" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the entire file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>absolute path containing the file (without file name)</p>
+<dd class="field-odd"><p>Return the entire content of the file as one big string</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="FileWrapper.File.GetFileSize">
-<span class="sig-name descname"><span class="pre">GetFileSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#FileWrapper.File.GetFileSize" title="Permalink to this definition">#</a></dt>
-<dd><p>Ask for the size of the file.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>return None if no file selected</p>
+<p>displays the carriage return + line feed</p>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The size of the file in Bytes</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="FileWrapper.File.MoveFile">
-<span class="sig-name descname"><span class="pre">MoveFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#FileWrapper.File.MoveFile" title="Permalink to this definition">#</a></dt>
-<dd><p>Change the directory of the file</p>
+<dt class="sig sig-object py" id="TXTFile.TXT.ReplaceContent">
+<span class="sig-name descname"><span class="pre">ReplaceContent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TXTFile.TXT.ReplaceContent" title="Permalink to this definition">#</a></dt>
+<dd><p>Give the specific line of the file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>newPath</strong> (<em>str</em>) – New path of the file.</p>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Move the file only if no other file of this name exists</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="FileWrapper.File.RenameFile">
-<span class="sig-name descname"><span class="pre">RenameFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#FileWrapper.File.RenameFile" title="Permalink to this definition">#</a></dt>
-<dd><p>Rename the file pointed by the object.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>return None if no file selected</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>newName</strong> (<em>str</em>) – New name of the file.</p>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Change the name only if no file of this name exists</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>don’t foget extention’</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="FileWrapper.File.SelectFile">
-<span class="sig-name descname"><span class="pre">SelectFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">userPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#FileWrapper.File.SelectFile" title="Permalink to this definition">#</a></dt>
-<dd><p>Select an existing file</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>userPath</strong> (<em>str</em>) – path to the file.</p>
+<dd class="field-odd"><p><strong>line</strong> (<em>int</em>) – Line to read.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the path and the name of the file</p>
+<dd class="field-even"><p>Return the line as a string</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str, str</p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>displays the carriage return + line feed</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>return an empty string if the line is out of bound or empty.</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="FileWrapper.File.__del__">
-<span class="sig-name descname"><span class="pre">__del__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#FileWrapper.File.__del__" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="TXTFile.TXT.__del__">
+<span class="sig-name descname"><span class="pre">__del__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TXTFile.TXT.__del__" title="Permalink to this definition">#</a></dt>
 <dd><p>Destroying object.</p>
 <p>Mainly used to close file in case something went wrong</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="FileWrapper.File.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#FileWrapper.File.__init__" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="TXTFile.TXT.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">userPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TXTFile.TXT.__init__" title="Permalink to this definition">#</a></dt>
 <dd><p>Instanciate class onto object.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="FileWrapper.File.__repr__">
-<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#FileWrapper.File.__repr__" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="TXTFile.TXT.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TXTFile.TXT.__repr__" title="Permalink to this definition">#</a></dt>
 <dd><p>Display the object of the file.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="FileWrapper.File.fileFormat">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fileFormat</span></span><a class="headerlink" href="#FileWrapper.File.fileFormat" title="Permalink to this definition">#</a></dt>
-<dd><p>Ask for the extention of the file.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>return None if no file selected</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The extention of the file. For instance <code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.py</span></code>, <code class="docutils literal notranslate"><span class="pre">.pdf</span></code></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="FileWrapper.File.name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#FileWrapper.File.name" title="Permalink to this definition">#</a></dt>
-<dd><p>Name of the file pointed by the object.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>return None if no file selected</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>full name of the file if it exists (with extension)
-None if it doesn’t exist</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str or None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="FileWrapper.File.path">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#FileWrapper.File.path" title="Permalink to this definition">#</a></dt>
-<dd><p>Ask for Path of the file</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>return None if no file selected</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>absolute path containing the file (without file name)</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="FileWrapper.File.size">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#FileWrapper.File.size" title="Permalink to this definition">#</a></dt>
-<dd><p>Ask for the size of the file.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>return None if no file selected</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The size of the file in Bytes</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
 </dd></dl>
 
 </dd></dl>
@@ -540,23 +415,23 @@ None if it doesn’t exist</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="PDFFile.html">
+          <a class="next-page" href="../TestsPages/modules.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">PDFFile module</div>
+                <div class="title">Tests</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="modules.html">
+          <a class="prev-page" href="PDFFile.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">File</div>
+                <div class="title">PDFFile module</div>
                 
               </div>
             </a>
@@ -592,7 +467,7 @@ None if it doesn’t exist</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">FileWrapper module</a><ul>
+<li><a class="reference internal" href="#">TXTFile module</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#libraries-modules">Libraries/Modules</a></li>
 <li><a class="reference internal" href="#version">Version</a></li>

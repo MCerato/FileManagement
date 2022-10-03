@@ -6,3 +6,4 @@ File
 
    FileWrapper
    PDFFile
+   TXTFile

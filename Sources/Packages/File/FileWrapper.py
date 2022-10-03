@@ -19,7 +19,7 @@ For instance, create a file, rename it etc...
 Libraries/Modules
 -----------------
 - os standard library (https://docs.python.org/3/library/os.html)
-Access to files function.
+    Access to files function.
 
 Version
 -------
@@ -123,6 +123,9 @@ class File:
 
         except FileNotFoundError:
             pass
+        
+        except PermissionError:
+            print("File seems open somewhere else")
 
     def SelectFile(self, userPath):
         """Select an existing file
@@ -137,13 +140,17 @@ class File:
             str, str
         """
         if self.__DoesFileExist(userPath):
-            with open(userPath, encoding="utf-8", mode="a"):
-                self.__UpdtFileInfos(userPath)            
-            return self.GetFilePath(), self.GetFileName()
+            try:
+                with open(userPath, encoding="utf-8", mode="a"):
+                    self.__UpdtFileInfos(userPath)            
+                return self.GetFilePath(), self.GetFileName()
 
+            except PermissionError:
+                print("File seems open somewhere else")   
         else:
             print("This file doesn't exist")
-      
+
+
 # In[2]: Manipulate file
     def DeleteFile(self):
         """Delete the file pointed by the object.

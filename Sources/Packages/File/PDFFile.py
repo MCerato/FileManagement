@@ -82,7 +82,6 @@ class PDF(fw.File):
             print("wrong file format")
             print(f"This is a {self.GetFileFormat()}")
             print(f"")
-            self.__del__()
         
     def __del__(self):
         """Destroying object.
@@ -109,7 +108,10 @@ class PDF(fw.File):
         .. note::
             displays the carriage return + line feed
         """
-        return self.__RawTextExtraction()
+        if self.GetFileFormat() == ".pdf":
+            return self.__RawTextExtraction()
+        else:
+            return None
 
     def GetLinesContent(self):
         """Return the entire file.
@@ -122,7 +124,10 @@ class PDF(fw.File):
         .. note::
             displays the carriage return + line feed
         """
-        return self.__RawTextExtraction().splitlines()
+        if self.GetFileFormat() == ".pdf":
+            return self.__RawTextExtraction().splitlines()
+        else:
+            return None
 
     def GetLineContent(self, line):
         """Give the specific line of the file.
@@ -142,10 +147,41 @@ class PDF(fw.File):
         .. note::
             return an empty string if the line is out of bound or empty.
         """
-        if line > 0 and line <= len(self.GetLinesContent()):
-            return self.__RawTextExtraction().splitlines()[line-1]
+        if self.GetFileFormat() == ".pdf":
+            if line > 0 and line <= len(self.GetLinesContent()):
+                return self.__RawTextExtraction().splitlines()[line-1]
+            else:
+                print("line doesn't exist")
         else:
-            print("line doesn't exist")
+            return None
+
+    def GetMetaPDF(self):
+        """Give the specific line of the file.
+
+        :param line:
+            Line to read.
+        :type line:
+            int
+        :return:
+            Return the line as a string
+        :rtype:
+            str
+
+        .. note::
+            displays the carriage return + line feed
+
+        .. note::
+            return an empty string if the line is out of bound or empty.
+        """
+        if self.GetFileFormat() == ".pdf":
+            with open(os.path.join(self.GetFilePath(),
+                                   self.GetFileName()), 'rb') as file:
+                pdf = PdfFileReader(file)
+                meta = pdf.getDocumentInfo()
+            return meta
+        else:
+            return None
+        
 
 # In[5]: internal functions for file content itself
     def __IsFileEmpty(self):

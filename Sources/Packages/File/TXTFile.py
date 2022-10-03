@@ -3,7 +3,8 @@
 
 Description
 -----------
-Object inherited from FileWrapper class and contning specific method to extract Data.   
+Object inherited from FileWrapper class and contning specific method to extract
+Datas.   
 
 Instead of FileWrapper, this Class has to be associated with a PDFFile
 
@@ -81,7 +82,6 @@ class TXT(fw.File):
             print("wrong file format")
             print(f"This is a {self.GetFileFormat()}")
             print(f"")
-            self.__del__()
         
     def __del__(self):
         """Destroying object.
@@ -108,7 +108,13 @@ class TXT(fw.File):
         .. note::
             displays the carriage return + line feed
         """
-        return self.__RawTextExtraction()
+        if self.GetFileFormat() == ".txt":
+            with open(os.path.join(self.GetFilePath(), self.GetFileName()),
+                      mode='r', encoding="utf-8") as file:
+                content = file.read()
+            return content
+        else:
+            return None
 
     def GetLinesContent(self):
         """Return the entire file.
@@ -121,7 +127,14 @@ class TXT(fw.File):
         .. note::
             displays the carriage return + line feed
         """
-        return self.__RawTextExtraction().splitlines()
+        if self.GetFileFormat() == ".txt":
+            with open(os.path.join(self.GetFilePath(),
+                                   self.GetFileName()),
+                      mode='r' ,encoding="utf-8") as file:
+                content = file.readlines()
+            return content
+        else:
+            return None
 
     def GetLineContent(self, line):
         """Give the specific line of the file.
@@ -141,10 +154,94 @@ class TXT(fw.File):
         .. note::
             return an empty string if the line is out of bound or empty.
         """
-        if line > 0 and line <= len(self.GetLinesContent()):
-            return self.__RawTextExtraction().splitlines()[line-1]
+        if self.GetFileFormat() == ".txt":
+            if line > 0 and line <= len(self.GetLinesContent()):
+
+                with open(os.path.join(self.GetFilePath(),
+                                       self.GetFileName()), 
+                          mode='r', encoding="utf-8") as file:
+                    for i in range(line):
+                        content = file.readline()
+                return content
+            else:
+                print("line doesn't exist")
         else:
-            print("line doesn't exist")
+            return None
+
+    def AddContent(self, contentToWrite):
+        """Give the specific line of the file.
+
+        :param line:
+            Line to read.
+        :type line:
+            int
+        :return:
+            Return the line as a string
+        :rtype:
+            str
+
+        .. note::
+            displays the carriage return + line feed
+
+        .. note::
+            return an empty string if the line is out of bound or empty.
+        """
+        if self.GetFileFormat() == ".txt":
+            with open(os.path.join(self.GetFilePath(),
+                                   self.GetFileName()),
+                      mode='a', encoding="utf-8") as file:
+                if contentToWrite[len(contentToWrite)-1:] == "\n":
+                    file.writelines(contentToWrite)
+                else:
+                    file.writelines(contentToWrite + "\n")
+
+    def ReplaceContent(self, contentToWrite):
+        """Give the specific line of the file.
+
+        :param line:
+            Line to read.
+        :type line:
+            int
+        :return:
+            Return the line as a string
+        :rtype:
+            str
+
+        .. note::
+            displays the carriage return + line feed
+
+        .. note::
+            return an empty string if the line is out of bound or empty.
+        """
+        if self.GetFileFormat() == ".txt":
+            with open(os.path.join(self.GetFilePath(),
+                                   self.GetFileName()),
+                      mode='w', encoding="utf-8") as file:
+                file.writelines(contentToWrite)
+
+    def EraseContent(self):
+        """Give the specific line of the file.
+
+        :param line:
+            Line to read.
+        :type line:
+            int
+        :return:
+            Return the line as a string
+        :rtype:
+            str
+
+        .. note::
+            displays the carriage return + line feed
+
+        .. note::
+            return an empty string if the line is out of bound or empty.
+        """
+        if self.GetFileFormat() == ".txt":
+            with open(os.path.join(self.GetFilePath(),
+                                   self.GetFileName()),
+                      mode='w', encoding="utf-8") as file:
+                file.writelines("")
 
 # In[5]: internal functions for file content itself
     def __IsFileEmpty(self):
@@ -161,9 +258,3 @@ class TXT(fw.File):
             isEmpty = True
         return isEmpty
 
-    def __RawTextExtraction(self):
-        with open(os.path.join(self.GetFilePath(),
-                               self.GetFileName()),
-                  mode='rb') as file:
-
-            return file.read()

@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Tests" href="../TestsPages/modules.html" /><link rel="prev" title="FileWrapper module" href="FileWrapper.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="TXTFile module" href="TXTFile.html" /><link rel="prev" title="FileWrapper module" href="FileWrapper.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.06.04.1"/>
         <title>PDFFile module - FileManagement 0.0.0.1 documentation</title>
@@ -159,13 +159,16 @@
 <li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">File</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="FileWrapper.html">FileWrapper module</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">PDFFile module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TXTFile.html">TXTFile module</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../TestsPages/modules.html">Tests</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../TestsPages/TestFile.html">TestFile module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../TestsPages/TestPDFFile.html">TestPDFFile module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TestsPages/TestTXTFile.html">TestTXTFile module</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../UserGuide.html">FileManagement UserGuide (WIP)</a></li>
 </ul>
 
 </div>
@@ -204,8 +207,8 @@
 <p>Manage the bank file.</p>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">#</a></h2>
-<p>Object from wich you can manage the file you’re using in your BankApp.
-For instance, create a file, rename it etc…</p>
+<p>Object inherited from FileWrapper class and contning specific method to extract Data.</p>
+<p>Instead of FileWrapper, this Class has to be associated with a PDFFile</p>
 <p>You can also get (read) the content and save a new content into it.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -271,6 +274,31 @@ Enter the name without extension</p></li>
 </ul>
 </dd>
 </dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="PDFFile.PDF.CreateNewPDF">
+<span class="sig-name descname"><span class="pre">CreateNewPDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Content</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PDFFile.PDF.CreateNewPDF" title="Permalink to this definition">#</a></dt>
+<dd><p>Give the specific line of the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>line</strong> (<em>int</em>) – Line to read.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Return the line as a string</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>displays the carriage return + line feed</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>return an empty string if the line is out of bound or empty.</p>
+</div>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="PDFFile.PDF.GetAllContent">
 <span class="sig-name descname"><span class="pre">GetAllContent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PDFFile.PDF.GetAllContent" title="Permalink to this definition">#</a></dt>
@@ -361,12 +389,12 @@ Enter the name without extension</p></li>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../TestsPages/modules.html">
+          <a class="next-page" href="TXTFile.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Tests</div>
+                <div class="title">TXTFile module</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>

@@ -41,6 +41,7 @@ Members
 # In[1]: imports
 import sys
 import os
+
 # ************* Directories Setup ***************
 absolutepath = os.path.abspath(__file__)
 pkgDirectories = os.path.dirname(absolutepath)
@@ -53,27 +54,52 @@ if not workingPath in sys.path:
     sys.path.insert(0, workingPath)
 
 # ***********************************************
-import PDFFile
+import TXTFile
 
 import time
 
 
     # In[1]: constructor & destructor
     
-resumePath = "D:/temp_perso/FileManagement/Sources/Profile.pdf"
-NotPDFFilePath = "D:/temp_perso/FileManagement/Sources/plop.pdf"
+resumePath = "D:/temp_perso/FileManagement/Sources/Profile.txt"
+NotTXTFilePath = "D:/temp_perso/FileManagement/Sources/plop.txt"
+WriteFilePath = "D:/temp_perso/FileManagement/Tests/WritingTest.txt"
 
-resumePDF = PDFFile.PDF(resumePath) # create the object
-metaDataz = resumePDF.GetMetaPDF()
-# print(resumePDF.GetFileFormat())
-resumeText = resumePDF.GetAllContent()
-resumeSplittedText = resumePDF.GetLinesContent()
-resumeLine = resumePDF.GetLineContent(3)
+resumeTXT = TXTFile.TXT(resumePath) # create the object
+print(resumeTXT)
+print(resumeTXT.GetFileFormat())
+resumeRawTXT = resumeTXT.GetAllContent()
+resumeSplittedText = resumeTXT.GetLinesContent()
+resumeLine = resumeTXT.GetLineContent(3)
 
-randomFile = PDFFile.PDF(NotPDFFilePath) # Create An other PDF file object with a wrong link
+writingTXT = TXTFile.TXT(WriteFilePath)
+print(writingTXT)
+print(writingTXT.GetFileFormat())
+print("")
+
+writingTXT.AddContent(resumeLine)
+time.sleep(2)
+writingTXT.AddContent(resumeLine)
+time.sleep(2)
+writingTXT.ReplaceContent(resumeSplittedText)
+time.sleep(2)
+writingTXT.EraseContent()
+
+
+
+
+randomFile = TXTFile.TXT(NotTXTFilePath) # Create An other PDF file object with a wrong link
+print(resumeTXT)
+time.sleep(2)
+randomFile.RenameFile("yo.txt")
+time.sleep(2)
+randomFile.MoveFile("D:/temp_perso/FileManagement/Sources/API")
+time.sleep(2)
+randomFile.MoveFile("D:/temp_perso/FileManagement/Sources")
 time.sleep(2)
 randomFile.DeleteFile()
 
 
-del resumePDF
+del resumeTXT
 del randomFile
+del writingTXT
