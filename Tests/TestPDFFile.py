@@ -1,34 +1,42 @@
 # -*- coding: utf-8 -*-
-"""Manage the bank file.
+"""Test the class PDF from PDFFile.
 
 Description
 -----------
-Object from wich you can manage the file you're using in your BankApp.
-You can get the content and save a new content into it.
+Sequence of tests for PDFFIle methods.
+
+.. warning::
+    Tests non exhaustive (WIP - learning on tests methods)
 
 .. note::
-    names and content of file are organised separately.
+    add waiting time when files are created
 
 Libraries/Modules
 -----------------
-- time standard library (https://docs.python.org/3/library/time.html)
-    - Access to sleep function.
+- sys standard library (https://docs.python.org/3/library/sys.html)
+    - Access to functions interacting with interpreter.
 - os standard library (https://docs.python.org/3/library/os.html)
     - Access to files function.
-- Cfichier module (local)
-    - Access to file methods.
+- time standard library (https://docs.python.org/2/library/time.html)
+    - Access to time-related functions.
+- PDFFile library (:file:PDFFile.html)
+    - Access to PDF files function.
 
 Version
 -------
 - 1.0.0.0
 
+Notes
+-----
+- None
+
 TODO
 ----
-- None.
+- Implement Tests according to Official tests protocol
 
 Author(s)
 ---------
-- Created by M. Cerato on 06/17/2022.
+- Created by M. Cerato on 10/05/2022.
 - Modified by xxx on xx/xx/xxxx.
 
 Copyright (c) 2022 Cerato Workshop.  All rights reserved.
@@ -36,11 +44,10 @@ Copyright (c) 2022 Cerato Workshop.  All rights reserved.
 Members
 -------
 """
-
-
 # In[1]: imports
 import sys
 import os
+import time
 # ************* Directories Setup ***************
 absolutepath = os.path.abspath(__file__)
 pkgDirectories = os.path.dirname(absolutepath)
@@ -49,31 +56,28 @@ while os.path.basename(pkgDirectories) != "FileManagement":
 
 workingPath = os.path.join(pkgDirectories, "Sources/Packages/File")
 
-if not workingPath in sys.path:
+if workingPath not in sys.path:
     sys.path.insert(0, workingPath)
 
 # ***********************************************
 import PDFFile
 
-import time
+# In[1]: constructor & destructor
 
-
-    # In[1]: constructor & destructor
-    
 resumePath = "D:/temp_perso/FileManagement/Sources/Profile.pdf"
 NotPDFFilePath = "D:/temp_perso/FileManagement/Sources/plop.pdf"
 
-resumePDF = PDFFile.PDF(resumePath) # create the object
+resumePDF = PDFFile.PDF(resumePath)  # create the object
 metaDataz = resumePDF.GetMetaPDF()
-# print(resumePDF.GetFileFormat())
+
 resumeText = resumePDF.GetAllContent()
 resumeSplittedText = resumePDF.GetLinesContent()
 resumeLine = resumePDF.GetLineContent(3)
 
-randomFile = PDFFile.PDF(NotPDFFilePath) # Create An other PDF file object with a wrong link
+# Create An other PDF file object with a wrong link
+randomFile = PDFFile.PDF(NotPDFFilePath)
 time.sleep(2)
 randomFile.DeleteFile()
-
 
 del resumePDF
 del randomFile

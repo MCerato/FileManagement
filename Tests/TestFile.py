@@ -1,34 +1,42 @@
 # -*- coding: utf-8 -*-
-"""Manage the bank file.
+"""Test the class FileWrapper.
 
 Description
 -----------
-Object from wich you can manage the file you're using in your BankApp.
-You can get the content and save a new content into it.
+Sequence of tests for FileWrapper methods.
+
+.. warning::
+    Test non exhaustive (WIP - learning on tests methods)
 
 .. note::
-    names and content of file are organised separately.
+    add waiting time when files are created
 
 Libraries/Modules
 -----------------
-- time standard library (https://docs.python.org/3/library/time.html)
-    - Access to sleep function.
+- sys standard library (https://docs.python.org/3/library/sys.html)
+    - Access to functions interacting with interpreter.
 - os standard library (https://docs.python.org/3/library/os.html)
     - Access to files function.
-- Cfichier module (local)
-    - Access to file methods.
+- time standard library (https://docs.python.org/2/library/time.html)
+    - Access to time-related functions.
+- PDFFile library (:file:FileWrapper.html)
+    - Access to files functions.
 
 Version
 -------
 - 1.0.0.0
 
+Notes
+-----
+- None
+
 TODO
 ----
-- None.
+- Implement Tests according to Official tests protocol
 
 Author(s)
 ---------
-- Created by M. Cerato on 06/17/2022.
+- Created by M. Cerato on 10/05/2022.
 - Modified by xxx on xx/xx/xxxx.
 
 Copyright (c) 2022 Cerato Workshop.  All rights reserved.
@@ -52,13 +60,13 @@ while os.path.basename(pkgDirectories) != "FileManagement":
 
 workingPath = os.path.join(pkgDirectories, "Sources/Packages/File")
 
-if not workingPath in sys.path:
+if workingPath not in sys.path:
     sys.path.insert(0, workingPath)
 
 # *****************************************************
-import FileWrapper
+import FileWrapper as fw
 
-    # In[1]: constructor & destructor
+# In[1]: constructor & destructor
 existingPath = "D:/temp_perso/FileManagement/Sources/Profile.pdf"
 # existingPath = os.path.abspath(existingPath)
 # existingPath = existingPath.replace("\\", "/")
@@ -67,8 +75,8 @@ nonExistingPath = "D:/temp_perso/FileManagement/Sources/plopi.pdf"
 # nonExistingPath = os.path.abspath(nonExistingPath)
 # nonExistingPath = nonExistingPath.replace("\\", "/")
 
-f1 = FileWrapper.File()
-f2 = FileWrapper.File()
+f1 = fw.File()
+f2 = fw.File()
 print(f"f1 : {f1}")
 print(f"f2 : {f2} \n")
 

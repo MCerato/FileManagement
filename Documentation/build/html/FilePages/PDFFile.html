@@ -204,25 +204,42 @@
         <article role="main">
           <section id="module-PDFFile">
 <span id="pdffile-module"></span><h1>PDFFile module<a class="headerlink" href="#module-PDFFile" title="Permalink to this headline">#</a></h1>
-<p>Manage the bank file.</p>
+<p>Manage the PDF file.</p>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">#</a></h2>
-<p>Object inherited from FileWrapper class and contning specific method to extract Data.</p>
-<p>Instead of FileWrapper, this Class has to be associated with a PDFFile</p>
-<p>You can also get (read) the content and save a new content into it.</p>
+<p>Object inherited from FileWrapper class and containing specific method
+to extract Data.</p>
+<p>unlike FileWrapper, this Class has to be associated with a file wich has
+<code class="docutils literal notranslate"><span class="pre">.pdf</span></code> format</p>
+<p>You can also get (read) the content.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>You can’t manipulate datas directly from/to the file.
 It is recommended to export the content of the file for treatment as
 a list of strings wich is easier to manipulate in python.</p>
 </div>
-<p><a class="reference external" href="https://www.blog.pythonlibrary.org/2018/06/07/an-intro-to-pypdf2/">https://www.blog.pythonlibrary.org/2018/06/07/an-intro-to-pypdf2/</a></p>
+<p>This file has largely been inspired by this tutorial:
+<a class="reference external" href="https://www.blog.pythonlibrary.org/2018/06/07/an-intro-to-pypdf2/">https://www.blog.pythonlibrary.org/2018/06/07/an-intro-to-pypdf2/</a></p>
 </section>
 <section id="libraries-modules">
 <h2>Libraries/Modules<a class="headerlink" href="#libraries-modules" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>os standard library (<a class="reference external" href="https://docs.python.org/3/library/os.html">https://docs.python.org/3/library/os.html</a>)</dt><dd><ul>
+<li><p>Access to files function.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>PyPDF2 library (<a class="reference external" href="https://pypdf2.readthedocs.io/en/latest/">https://pypdf2.readthedocs.io/en/latest/</a>)</dt><dd><ul>
+<li><p>Access to PDF Manipulation functions.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>FileWrapper library (:<a class="reference external" href="file:FileWrapper.html">file:FileWrapper.html</a>)</dt><dd><ul>
 <li><p>Access to files function.</p></li>
 </ul>
 </dd>
@@ -238,9 +255,8 @@ a list of strings wich is easier to manipulate in python.</p>
 </section>
 <section id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>None.</p></li>
-</ul>
+<p>This suggest that the PDF file has been build correctly and, is not a
+picture of a file.</p>
 </section>
 <section id="todo">
 <h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">#</a></h2>
@@ -251,33 +267,35 @@ a list of strings wich is easier to manipulate in python.</p>
 <section id="author-s">
 <h2>Author(s)<a class="headerlink" href="#author-s" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>Created by M. Cerato on 06/17/2022.</p></li>
+<li><p>Created by M. Cerato on 10/04/2022.</p></li>
 <li><p>Modified by xxx on xx/xx/xxxx.</p></li>
 </ul>
 <p>Copyright (c) 2020 Cerato Workshop.  All rights reserved.</p>
 </section>
 <section id="members">
 <h2>Members<a class="headerlink" href="#members" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><ol class="upperalpha simple" start="13">
+<li><p>Cerato</p></li>
+</ol>
+</li>
+</ul>
 <dl class="py class">
 <dt class="sig sig-object py" id="PDFFile.PDF">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">userPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PDFFile.PDF" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="FileWrapper.html#FileWrapper.File" title="FileWrapper.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileWrapper.File</span></code></a></p>
-<p>Class representing the file.</p>
+<p>Class representing the PDF file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<em>str</em>) – where the file is.
-Path should be absolute with format <code class="docutils literal notranslate"><span class="pre">C:/file1/file2/sourcefile</span></code></p></li>
-<li><p><strong>name</strong> (<em>str</em>) – Name of the file.
-Enter the name without extension</p></li>
-<li><p><strong>month</strong> (<em>int</em>) – <strong>Number</strong> of the month (i.e 1 for January).</p></li>
-</ul>
+<dd class="field-odd"><p><strong>userPath</strong> (<em>str</em>) – where the PDF file is.
+Path should be, preferably, absolute with format :
+<code class="docutils literal notranslate"><span class="pre">C:/file1/file2/sourcefile</span></code></p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="PDFFile.PDF.GetAllContent">
 <span class="sig-name descname"><span class="pre">GetAllContent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PDFFile.PDF.GetAllContent" title="Permalink to this definition">#</a></dt>
-<dd><p>Return the entire file.</p>
+<dd><p>Read the entire file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Return the entire content of the file as one big string</p>
@@ -288,14 +306,18 @@ Enter the name without extension</p></li>
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>displays the carriage return + line feed</p>
+<p>Should displays the carriage return + line feed</p>
 </div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="PDFFile.PDF.GetLineContent">
 <span class="sig-name descname"><span class="pre">GetLineContent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PDFFile.PDF.GetLineContent" title="Permalink to this definition">#</a></dt>
-<dd><p>Give the specific line of the file.</p>
+<dd><p>Read a specific line of the file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>line start at 1</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>line</strong> (<em>int</em>) – Line to read.</p>
@@ -320,10 +342,10 @@ Enter the name without extension</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="PDFFile.PDF.GetLinesContent">
 <span class="sig-name descname"><span class="pre">GetLinesContent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PDFFile.PDF.GetLinesContent" title="Permalink to this definition">#</a></dt>
-<dd><p>Return the entire file.</p>
+<dd><p>Read the entire file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Return the entire content of the file as one big string</p>
+<dd class="field-odd"><p>Return the entire content of the file line by line</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>str</p>
@@ -338,26 +360,25 @@ Enter the name without extension</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="PDFFile.PDF.GetMetaPDF">
 <span class="sig-name descname"><span class="pre">GetMetaPDF</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PDFFile.PDF.GetMetaPDF" title="Permalink to this definition">#</a></dt>
-<dd><p>Give the specific line of the file.</p>
+<dd><p>Return the MetaDatas of the file such as Author or date of creation.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>line</strong> (<em>int</em>) – Line to read.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Return the line as a string</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>Return a dictionnary containing the keys :</dt><dd><ul class="simple">
+<li><p>/Title</p></li>
+<li><p>/Author</p></li>
+<li><p>/Subject</p></li>
+<li><p>/Producer</p></li>
+<li><p>/CreationDate (format:yyyymmddhhmmss)</p></li>
+</ul>
 </dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>displays the carriage return + line feed</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>return an empty string if the line is out of bound or empty.</p>
-</div>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">

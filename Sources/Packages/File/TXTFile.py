@@ -1,26 +1,27 @@
 # -*- coding: utf-8 -*-
-"""Manage the bank file.
+"""Manage the PDF file.
 
 Description
 -----------
-Object inherited from FileWrapper class and contning specific method to extract
-Datas.   
+Object inherited from FileWrapper class and containing specific method
+to extract Data.
 
-Instead of FileWrapper, this Class has to be associated with a PDFFile
+unlike FileWrapper, this Class has to be associated with a file wich has
+``.txt`` format
 
-You can also get (read) the content and save a new content into it.
+You can also get (read) the content and write, erase or replace a content.
 
 .. warning::
-    You can't manipulate datas directly from/to the file.
-    It is recommended to export the content of the file for treatment as
-    a list of strings wich is easier to manipulate in python.
-
-
-https://www.blog.pythonlibrary.org/2018/06/07/an-intro-to-pypdf2/
+    It is not recommended to manipulate datas directly from/to the file.
+    It is recommended to import the content of the file for treatment as
+    a list of strings wich is easier to manipulate in python and then
+    write it back to the file.
 
 Libraries/Modules
 -----------------
 - os standard library (https://docs.python.org/3/library/os.html)
+    - Access to files function.
+- FileWrapper library (:file:FileWrapper.html)
     - Access to files function.
 
 Version
@@ -29,7 +30,7 @@ Version
 
 Notes
 -----
-- None.
+- None
 
 TODO
 ----
@@ -37,52 +38,43 @@ TODO
 
 Author(s)
 ---------
-- Created by M. Cerato on 06/17/2022.
+- Created by M. Cerato on 10/04/2022.
 - Modified by xxx on xx/xx/xxxx.
 
 Copyright (c) 2020 Cerato Workshop.  All rights reserved.
 
 Members
 -------
+- M. Cerato
 """
 
 # In[1]: imports
-import sys
 import os
 import FileWrapper as fw
 
+
 class TXT(fw.File):
     # In[1]: constructor & destructor
+    """Class representing the TXT file.
 
-    """Class representing the file.
-    
-    :param path:
-        where the file is.
-        Path should be absolute with format ``C:/file1/file2/sourcefile``
-    :type path:
+    :param userPath:
+        where the TXT file is.
+        Path should be, preferably, absolute with format :
+        ``C:/file1/file2/sourcefile``
+    :type userPath:
         str
-    :param name:
-        Name of the file.
-        Enter the name without extension
-    :type name:
-        str
-    :param month:
-        **Number** of the month (i.e 1 for January).
-    :type month:
-        int
-    
     """
 
     def __init__(self, userPath):
         fw.File.__init__(self)
 
-        self.CreateFile(userPath) # link the PDF to the object
-        
+        self.CreateFile(userPath)  # link the PDF to the object
+
         if self.GetFileFormat() != ".txt":
             print("wrong file format")
             print(f"This is a {self.GetFileFormat()}")
-            print(f"")
-        
+            print("")
+
     def __del__(self):
         """Destroying object.
 
@@ -92,9 +84,7 @@ class TXT(fw.File):
 
     def __repr__(self):
         """Display the object of the file."""
-
         return f"txt file : {self.GetFileName()}"
-
 
 # In[3]: Content of the file
     def GetAllContent(self):
@@ -130,7 +120,7 @@ class TXT(fw.File):
         if self.GetFileFormat() == ".txt":
             with open(os.path.join(self.GetFilePath(),
                                    self.GetFileName()),
-                      mode='r' ,encoding="utf-8") as file:
+                      mode='r', encoding="utf-8") as file:
                 content = file.readlines()
             return content
         else:
@@ -158,7 +148,7 @@ class TXT(fw.File):
             if line > 0 and line <= len(self.GetLinesContent()):
 
                 with open(os.path.join(self.GetFilePath(),
-                                       self.GetFileName()), 
+                                       self.GetFileName()),
                           mode='r', encoding="utf-8") as file:
                     for i in range(line):
                         content = file.readline()
@@ -169,22 +159,12 @@ class TXT(fw.File):
             return None
 
     def AddContent(self, contentToWrite):
-        """Give the specific line of the file.
+        """Append content into a txt file.
 
-        :param line:
+        :param contentToWrite:
             Line to read.
-        :type line:
-            int
-        :return:
-            Return the line as a string
-        :rtype:
-            str
-
-        .. note::
-            displays the carriage return + line feed
-
-        .. note::
-            return an empty string if the line is out of bound or empty.
+        :type contentToWrite:
+            str, list
         """
         if self.GetFileFormat() == ".txt":
             with open(os.path.join(self.GetFilePath(),
@@ -196,22 +176,12 @@ class TXT(fw.File):
                     file.writelines(contentToWrite + "\n")
 
     def ReplaceContent(self, contentToWrite):
-        """Give the specific line of the file.
+        """Erase previous content and write new content into a txt file.
 
-        :param line:
+        :param contentToWrite:
             Line to read.
-        :type line:
-            int
-        :return:
-            Return the line as a string
-        :rtype:
-            str
-
-        .. note::
-            displays the carriage return + line feed
-
-        .. note::
-            return an empty string if the line is out of bound or empty.
+        :type contentToWrite:
+            str, list
         """
         if self.GetFileFormat() == ".txt":
             with open(os.path.join(self.GetFilePath(),
@@ -220,23 +190,7 @@ class TXT(fw.File):
                 file.writelines(contentToWrite)
 
     def EraseContent(self):
-        """Give the specific line of the file.
-
-        :param line:
-            Line to read.
-        :type line:
-            int
-        :return:
-            Return the line as a string
-        :rtype:
-            str
-
-        .. note::
-            displays the carriage return + line feed
-
-        .. note::
-            return an empty string if the line is out of bound or empty.
-        """
+        """Erase content of a txt file."""
         if self.GetFileFormat() == ".txt":
             with open(os.path.join(self.GetFilePath(),
                                    self.GetFileName()),
@@ -257,4 +211,3 @@ class TXT(fw.File):
         else:
             isEmpty = True
         return isEmpty
-

@@ -1,25 +1,31 @@
 # -*- coding: utf-8 -*-
-"""Manage the bank file.
+"""Manage the PDF file.
 
 Description
 -----------
-Object inherited from FileWrapper class and contning specific method to extract Data.   
+Object inherited from FileWrapper class and containing specific method
+to extract Data.
 
-Instead of FileWrapper, this Class has to be associated with a PDFFile
+unlike FileWrapper, this Class has to be associated with a file wich has
+``.pdf`` format
 
-You can also get (read) the content and save a new content into it.
+You can also get (read) the content.
 
 .. warning::
     You can't manipulate datas directly from/to the file.
     It is recommended to export the content of the file for treatment as
     a list of strings wich is easier to manipulate in python.
 
-
+This file has largely been inspired by this tutorial:
 https://www.blog.pythonlibrary.org/2018/06/07/an-intro-to-pypdf2/
 
 Libraries/Modules
 -----------------
 - os standard library (https://docs.python.org/3/library/os.html)
+    - Access to files function.
+- PyPDF2 library (https://pypdf2.readthedocs.io/en/latest/)
+    - Access to PDF Manipulation functions.
+- FileWrapper library (:file:FileWrapper.html)
     - Access to files function.
 
 Version
@@ -28,7 +34,8 @@ Version
 
 Notes
 -----
-- None.
+This suggest that the PDF file has been build correctly and, is not a
+picture of a file.
 
 TODO
 ----
@@ -36,69 +43,58 @@ TODO
 
 Author(s)
 ---------
-- Created by M. Cerato on 06/17/2022.
+- Created by M. Cerato on 10/04/2022.
 - Modified by xxx on xx/xx/xxxx.
 
 Copyright (c) 2020 Cerato Workshop.  All rights reserved.
 
 Members
 -------
+- M. Cerato
 """
 
 # In[1]: imports
-import sys
 import os
 from PyPDF2 import PdfFileReader
 import FileWrapper as fw
 
+
 class PDF(fw.File):
     # In[1]: constructor & destructor
+    """Class representing the PDF file.
 
-    """Class representing the file.
-    
-    :param path:
-        where the file is.
-        Path should be absolute with format ``C:/file1/file2/sourcefile``
-    :type path:
+    :param userPath:
+        where the PDF file is.
+        Path should be, preferably, absolute with format :
+        ``C:/file1/file2/sourcefile``
+    :type userPath:
         str
-    :param name:
-        Name of the file.
-        Enter the name without extension
-    :type name:
-        str
-    :param month:
-        **Number** of the month (i.e 1 for January).
-    :type month:
-        int
-    
     """
 
     def __init__(self, userPath):
+        """Instanciate class onto object."""
         fw.File.__init__(self)
+        self.CreateFile(userPath)  # link the PDF to the object
 
-        self.CreateFile(userPath) # link the PDF to the object
-        
         if self.GetFileFormat() != ".pdf":
             print("wrong file format")
             print(f"This is a {self.GetFileFormat()}")
-            print(f"")
-        
+            print("")
+
     def __del__(self):
         """Destroying object.
 
         Mainly used to close file in case something went wrong
         """
-        print(f"{self} deleted")
+        print(f"object {self} deleted")
 
     def __repr__(self):
         """Display the object of the file."""
-
         return f"pdf file : {self.GetFileName()}"
-
 
 # In[3]: Content of the file
     def GetAllContent(self):
-        """Return the entire file.
+        """Read the entire file.
 
         :return:
             Return the entire content of the file as one big string
@@ -106,7 +102,7 @@ class PDF(fw.File):
             str
 
         .. note::
-            displays the carriage return + line feed
+            Should displays the carriage return + line feed
         """
         if self.GetFileFormat() == ".pdf":
             return self.__RawTextExtraction()
@@ -114,10 +110,10 @@ class PDF(fw.File):
             return None
 
     def GetLinesContent(self):
-        """Return the entire file.
+        """Read the entire file.
 
         :return:
-            Return the entire content of the file as one big string
+            Return the entire content of the file line by line
         :rtype:
             str
 
@@ -130,7 +126,10 @@ class PDF(fw.File):
             return None
 
     def GetLineContent(self, line):
-        """Give the specific line of the file.
+        """Read a specific line of the file.
+
+        .. note::
+            line start at 1
 
         :param line:
             Line to read.
@@ -156,22 +155,19 @@ class PDF(fw.File):
             return None
 
     def GetMetaPDF(self):
-        """Give the specific line of the file.
+        """Return the MetaDatas of the file such as Author or date of creation.
 
-        :param line:
-            Line to read.
-        :type line:
-            int
         :return:
-            Return the line as a string
+            Return a dictionnary containing the keys :
+                - /Title
+                - /Author
+                - /Subject
+                - /Producer
+                - /CreationDate (format:yyyymmddhhmmss)
         :rtype:
-            str
+            dict
 
-        .. note::
-            displays the carriage return + line feed
 
-        .. note::
-            return an empty string if the line is out of bound or empty.
         """
         if self.GetFileFormat() == ".pdf":
             with open(os.path.join(self.GetFilePath(),
@@ -181,7 +177,6 @@ class PDF(fw.File):
             return meta
         else:
             return None
-        
 
 # In[5]: internal functions for file content itself
     def __IsFileEmpty(self):
@@ -199,6 +194,13 @@ class PDF(fw.File):
         return isEmpty
 
     def __RawTextExtraction(self):
+        """(local method) Prepare and extract datas from PDF.
+
+        :return:
+            Return ``True`` or ``False``
+        :rtype:
+            bool
+        """
         text = ""
         with open(os.path.join(self.GetFilePath(),
                                self.GetFileName()), 'rb') as file:

@@ -1,7 +1,0 @@
-CFichier module
-===============
-
-.. automodule:: CFichier
-   :members:
-   :undoc-members:
-   :show-inheritance:
