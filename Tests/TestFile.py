@@ -51,19 +51,19 @@ import os
 
 import time
 
-# ************* Package Directory Setup ***************
+# ************* Directories Setup ***************
+projectName = "FileManagement"
 absolutepath = os.path.abspath(__file__)
 pkgDirectories = os.path.dirname(absolutepath)
-while os.path.basename(pkgDirectories) != "FileManagement":
+while os.path.basename(pkgDirectories) != projectName:
     pkgDirectories = os.path.dirname(pkgDirectories)
-    print(pkgDirectories)
 
 workingPath = os.path.join(pkgDirectories, "Sources/Packages/File")
 
 if workingPath not in sys.path:
     sys.path.insert(0, workingPath)
 
-# *****************************************************
+# ***********************************************
 import FileWrapper as fw
 
 # In[1]: constructor & destructor

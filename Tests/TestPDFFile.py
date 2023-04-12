@@ -49,9 +49,10 @@ import sys
 import os
 import time
 # ************* Directories Setup ***************
+projectName = "FileManagement"
 absolutepath = os.path.abspath(__file__)
 pkgDirectories = os.path.dirname(absolutepath)
-while os.path.basename(pkgDirectories) != "FileManagement":
+while os.path.basename(pkgDirectories) != projectName:
     pkgDirectories = os.path.dirname(pkgDirectories)
 
 workingPath = os.path.join(pkgDirectories, "Sources/Packages/File")

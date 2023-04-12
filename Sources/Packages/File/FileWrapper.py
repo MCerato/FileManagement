@@ -81,14 +81,14 @@ class File:
         self._name = None
         self._size = None
         self._fileFormat = None
-        print(f"creation of the File object associated with {self}")
+        # print(f"creation of the File object associated with {self}")
 
     def __del__(self):
         """Destroying object.
 
         Mainly used to close file in case something went wrong
         """
-        print(f"{self} deleted")
+        # print(f"{self} deleted")
 
     def __repr__(self):
         """Display the object of the file."""
@@ -117,16 +117,16 @@ class File:
             return self.GetFilePath(), self.GetFileName()
 
         except FileExistsError:
-            print("File already exists, file selected")
-            print("")
             self.SelectFile(userPath)
 
         except FileNotFoundError:
+            print("File not Found")           
             pass
         
         except PermissionError:
             print("File seems open somewhere else")
-
+            print("permission error")
+            
     def SelectFile(self, userPath):
         """Select an existing file
         
